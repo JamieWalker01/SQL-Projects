@@ -1,4 +1,4 @@
--- 3 Month Moving Average of Internet Sales.
+-- ##3 Month Moving Average of Internet Sales.
 SELECT Year
 , Month
 , AVG(AVG_Monthly_Sales) OVER(ORDER BY Year, Month ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS '3_Month_Moving_AVG'
@@ -13,7 +13,7 @@ GROUP BY YEAR(s.OrderDate), MONTH(s.OrderDate)) AS s
 GROUP BY Year, Month, AVG_Monthly_Sales
 ORDER BY Year, Month; 
 
--- Yearly Running Total
+-- ##Yearly Running Total
 SELECT Year
 ,Month
 ,SUM(Sales) OVER (PARTITION BY Year ORDER BY Month ROWS UNBOUNDED PRECEDING) as YTD_Sales
@@ -29,7 +29,7 @@ GROUP BY MONTH(s.OrderDate), year(s.OrderDate)) AS S
 GROUP BY Year, Month, Sales
 ORDER BY Year, Month;
 			  
--- Year on Year Monthly Sales Percent Change 
+-- ##Year on Year Monthly Sales Percent Change 
 WITH MonthlySales_CTE (Year, Month, Sales) AS
 (SELECT 
   d.CalendarYear
