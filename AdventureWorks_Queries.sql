@@ -39,7 +39,6 @@ FROM DimDate d
 JOIN FactInternetSales s ON d.DateKey = s.OrderDateKey
 GROUP BY d.CalendarYear, d.MonthNumberOfYear) 
 -- Using a common table expression to hold previous years sales.
-
 SELECT 
   d.CalendarYear AS Year
 , d.MonthNumberOfYear AS Month
@@ -52,4 +51,3 @@ JOIN MonthlySales_CTE CTE ON d.CalendarYear-1 = CTE.Year -- The CTE is joined on
 AND d.MonthNumberOfYear = CTE.Month
 GROUP BY d.CalendarYear, d.MonthNumberOfYear, CTE.Sales
 ORDER BY d.CalendarYear, d.MonthNumberOfYear;
-                                  
