@@ -1,2 +1,2 @@
-# SQL-Examples
-A few demonstrations of my knowledge of SQLite using the Chinook database and T-SQL on Microsoft SQL Server using the AdventureWorld DW Database. 
+# SQL-Projects
+A few Queries written in SQLite using the Chinook database and T-SQL using the AdventureWorks2014 DW Database run on Microsoft SQL Server. 
